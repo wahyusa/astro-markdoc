@@ -1,15 +1,25 @@
 ---
+import { getEntryBySlug } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+
+const intro = await getEntryBySlug("docs", "intro");
+const { Content } = await intro.render();
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title={intro.data.title}>
+  <main>
+    <h1>{intro.data.title}</h1>
+    <Content revealSecret />
+  </main>
+</Layout>
+
+<style is:global>
+  table {
+    margin-block: 2rem;
+    margin-inline: auto;
+  }
+  table td {
+    padding-block: 0.3rem;
+    padding-inline: 0.5rem;
+  }
+</style>

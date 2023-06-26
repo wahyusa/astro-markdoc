@@ -1,12 +1,13 @@
-# Astro Starter Kit: Minimal
+# Astro Example: Markdoc (experimental)
+
+This starter showcases the experimental Markdoc integration.
 
 ```
-npm create astro@latest -- --template minimal
+npm create astro@latest -- --template with-markdoc
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/with-markdoc)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/with-markdoc)
 
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
@@ -18,16 +19,24 @@ Inside of your Astro project, you'll see the following folders and files:
 /
 ├── public/
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   └── content/
+        └── docs/
+│           └── intro.mdoc
+|       └── config.ts
+│   └── components/Aside.astro
+│   └── layouts/Layout.astro
+│   └── pages/index.astro
+|   └── env.d.ts
+├── astro.config.mjs
+├── markdoc.config.mjs
+├── README.md
+├── package.json
+└── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Markdoc (`.mdoc`) files can be used in content collections. See `src/content/docs/` for an example file.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
+You can also render Astro components from your Markdoc files using [tags](https://markdoc.dev/docs/tags). See the `markdoc.config.mjs` file for an example configuration.
 
 ## 🧞 Commands
 
